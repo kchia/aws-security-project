@@ -1,3 +1,12 @@
 Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
 
+AWS Config Findings:
+- Based on the security group ids, the rule named securityhub-restricted-ssh-553891f2 is noncompliant for both the application server security groups and attack instance security groups. This rule checks whether the incoming SSH traffic for the security groups is accessible. To remediate this issue, we can disallow SSH traffic to the application server security group.
+
+
+AWS Security Hub Findings based on CIS AWS Foundations Benchmark v1.2.0:
+- Vulnerabilities in the "critical" severity category are related to the use of a root account to deploy cloud infrastructure. To remediate the vulnerabilities, we should avoid the use of root account altogether after initial account creation and instead rely on IAM roles to secure access to cloud services in accordance with the principle of least privilege access.
+- In the "high" severity category, security groups configured for the application server currently allow direct traffic from 0.0.0.0/0 to port 22 on the application server, which means malicious users can directly attack the application server instance from the internet. To remediate this vulnerability, we can configure the Security Group Inbound Rules for WebAppSG to restrict internet access through port 22 and only allow incoming traffic from the Application Load Balancer (in accordance with the principle of least privilege access).
+
+
 Bonus - provide recommendations on how to remediate the vulnerabilities.

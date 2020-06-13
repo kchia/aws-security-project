@@ -1,5 +1,9 @@
-
-
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+1. Port 22 on the Web Server Instance is currently exposed to the internet. We can mitigate the risk of intrusion on port 22 of the Web Service Instance by allowing access to that port from trusted sources only (i.e., the Application Load Balancer). 
+
+2. We can set up a Web Application Firewall (WAF), using either a WAF service such as Akamai, CloudFlare, or AWS WAF, in front our public facing services to inspect HTTP traffic for unusual traffic patterns that could signify exploitation attempts and block them accordingly.
+
+3. Since SSH brute force attempts are often carried out using the root credentials of a server, we can configure the root user to be inaccessible to the Web Server Instance via SSH.
 
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+We can enable server-side encryption on the secret recipes bucket, along with blocking public access to the bucket and using VPC endpoints to access the bucket. We can also define more stringent S3 bucket policies to restrict access to the bucket.

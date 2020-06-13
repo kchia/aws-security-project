@@ -1,13 +1,13 @@
 # Identify tools that will allow you to do the following:
 
-## Scan infrastructure as code templates
+## Scan infrastructure as code templates: Regula
 
-### Example vulnerability
+### Example vulnerability: Overly permissive IAM Role (e.g., '*' capabilities on all AWS resources)
 
-##Scan AMI’s or containers for OS vulnerabilities
+## Scan AMI’s or containers for OS vulnerabilities: Ansible
 
-### Example vulnerability
+### Example vulnerability: Outdated OS system vulnerable to infection by a computer worm (e.g., Code Red)
 
-##Scan an AWS environment for cloud configuration vulnerabilities
+## Scan an AWS environment for cloud configuration vulnerabilities: AWS Inspector
 
-### Example vulnerability
+### Example vulnerability: Checking for access to your EC2 instances from the internet, remote root login being enabled, or vulnerable software versions installed. 

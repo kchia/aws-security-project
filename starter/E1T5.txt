@@ -1,5 +1,7 @@
 Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
 
 # Poor practice 1
+We relied on an IAM User (root) and and a set of API keys (associated with the root user) to deploy our EC2 instances to the VPC. If my root credentials are compromised, the attackers will have full administrative access to the system with which to perform highly malicious and destructive activities, including closing the account. Least privilege IAM policies have not been implemented for the system.
 
 # Poor practice 2
+The secret_recipe.txt file stored on S3 does not have server-side encryption enabled, so an infiltrator can easily get an unencrypted version of the file if they get read access to the file. Although the access policy for the secret recipes S3 buckets is not public, anyone with the appropriate permissions in the organization can grant public access to the bucket. Currently, neither object lock nor versioning has been enabled on the S3 buckets, so system infiltrators can easily delete the objects stored on the buckets.

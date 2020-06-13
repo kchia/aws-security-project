@@ -1,3 +1,6 @@
 # Describe GuardDuty findings that were detected related to the brute force attack
+i-033de3fb4419b2b8a is performing SSH brute force attacks against the 10.192.10.191 address. 
 
 # Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+In general, to detect unauthorized and unexpected activity in your AWS environment, GuardDuty analyzes and processes data from AWS CloudTrail event logs, VPC Flow Logs, and DNS logs. For the brute force attacks specifically, GuardDuty detected them by analzying AWS VPC Flow Logs. 
+
